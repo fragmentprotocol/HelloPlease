@@ -30,11 +30,6 @@ async def on_message(message):
         await client.send_message(message.channel, 'Done sleeping')
 
     elif message.content.startswith('!insult'):
-
-        in01 = open("ins01.py").read()
-
-        in02 = open("ins02.py").read()
-
         for user in message.mentions:
             await client.send_message(message.channel, "<@" +  user.id + "> thou "\
  + random.choice(insult1) + random.choice(insult2) + random.choice(insult3))
