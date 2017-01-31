@@ -32,6 +32,6 @@ async def on_message(message):
     elif message.content.startswith('!insult'):
         for user in message.mentions:
             await client.send_message(message.channel, "<@" +  user.id + "> thou "\
- + random.choice(insult1) + random.choice(insult2) + random.choice(insult3))
+            + random.choice(insult1) + random.choice(insult2) + random.choice(insult3))
 
 client.run(open('token.ini').read())
