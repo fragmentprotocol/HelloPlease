@@ -30,8 +30,12 @@ async def on_message(message):
         await client.send_message(message.channel, 'Done sleeping')
 
     elif message.content.startswith('!insult'):
-        for user in message.mentions:
-            await client.send_message(message.channel, "<@" +  user.id + "> thou "\
-            + random.choice(insult1) + random.choice(insult2) + random.choice(insult3))
-
+           if len(message.mentions)>0:
+               for user in message.mentions:
+                   await client.send_message(message.channel, "<@" +  user.id + "> thou "\
+                   + random.choice(insult1) + random.choice(insult2) + random.choice(insult3))
+           else:
+               await client.send_message(message.channel, "thou " + random.choice(insult1)\
+                + random.choice(insult2) + random.choice(insult3))
+        
 client.run(open('token.ini').read())
